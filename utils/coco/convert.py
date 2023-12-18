@@ -1,6 +1,6 @@
 import numpy as np
 
-def convert_inference_results_to_coco(result, image, img, min_score: float = 0) -> dict:
+def convert_inference_results_to_coco(result, image, image_width, image_height, min_score: float = 0) -> dict:
     selected_classes = []
     selected_boxes = []
     selected_scores = []
@@ -19,7 +19,7 @@ def convert_inference_results_to_coco(result, image, img, min_score: float = 0) 
         for a, b in box_to_cnt_indexes:
             cnt.append([bbox[a], bbox[b]])
         selected_cnts.append([cnt])
-    output_shape = img.shape[:2]
+    
     image_id = image['id']
     
     
@@ -65,8 +65,8 @@ def convert_inference_results_to_coco(result, image, img, min_score: float = 0) 
 
     return {
         'file_name': image['file_name'],  # not used
-        'height': output_shape[0],  # Image Resolution
-        'width': output_shape[1],  # Image Resolution
+        'height': image_height,  # Image Resolution
+        'width': image_width,  # Image Resolution
         'image_id': int(image_id),
         #'CLASSES_COUNT': len(loaded_categories),
         'annotations': annotations

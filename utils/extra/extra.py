@@ -10,13 +10,13 @@ class ExtraEval():
     def __init__(self,
                  cocoGt: COCO = None,
                  cocoDt: COCO = None,
-                 iouType: str = 'bbox',
+                 iou_type: str = 'bbox',
                  min_score: float = 0,
                  iou_tresh: float = 0.0,
                  recall_count: int = 100,
                  useCats: bool = False,
                  ):
-        self.iouType = iouType
+        self.iouType = iou_type
         self.min_score = min_score
         self.iou_tresh = iou_tresh
         self.useCats = useCats
