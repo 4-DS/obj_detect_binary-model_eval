@@ -3,7 +3,26 @@
 This step CV-Pipeline: model_eval is intended for:
 This stage of the CV Pipeline Model_Eval ensures model testing, performance evaluation, saving predictions for further analysis, and visualizing results using metrics and graphs.
 
-Input and output for the CV pipeline step:      
-<a id="blob-path" href="https://github.com/4-DS/obj_detect_binary-model_eval/blob/main/run_obj_detector.ipynb?short_path=dc87c27#L47C1-L82C17">run_obj_detector.ipynb</a>     
-<a id="blob-path" href="https://github.com/4-DS/obj_detect_binary-model_eval/blob/main/eval_obj_detector.ipynb?short_path=b8e69fb#L56C1-L82C17">eval_obj_detector.ipynb</a>    
+Input data for step CV-Pipeline: model_eval
+- **coco_test_dataset**     
+Test dataset (from the CV-Pipeline component: data_prep)
+- **bento_service**     
+Model packaged in the BentoArchive from the model_pack step
+
+## How to run a step CV-Pipeline: model_eval
+
+### clone the repository: model_eval
+```
+git clone --recurse-submodules https://github.com/4-DS/obj_detect_binary-model_eval.git
+cd obj_detect_binary-model_eval
+```  
+
+### run step CV-Pipeline:model_eval
+```
+python step.dev.py
+```  
+or
+```
+step.prod.py
+``` 
 
