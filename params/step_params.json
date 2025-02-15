@@ -1,0 +1,30 @@
+{
+    "pipeline_params":
+    {
+        "env_name":"user",
+        "pipeline_name":"obj_detect_binary",
+        "zone_name":"test"
+    },
+    "step_params":
+    {
+        "step_name": "model_eval"
+    },
+    "substeps_params":
+    [
+        {
+            "substep_name":"run_obj_detector.ipynb",
+            "substep_params":
+            {                
+                "min_score"      : 0.1
+            }
+        },
+        {
+            "substep_name":"eval_obj_detector.ipynb",
+            "substep_params":
+            {
+                "threshold_iou" : 0.5,
+                "threshold_MAp05": 0.008
+            }
+        }
+    ]
+}
